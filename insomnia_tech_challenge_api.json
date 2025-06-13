@@ -1,0 +1,92 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2025-06-11T12:00:00.000Z",
+  "__export_source": "insomnia.desktop.app:v2024.2.0",
+  "resources": [
+    {
+      "_id": "wrk_tech_challenge_api",
+      "name": "Tech Challenge API",
+      "description": "Coleção de requests para testar a API de blogging docente.",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "env_base",
+      "parentId": "wrk_tech_challenge_api",
+      "name": "Base Environment",
+      "data": {
+        "base_url": "http://localhost:3000"
+      },
+      "_type": "environment"
+    },
+    {
+      "_id": "req_get_posts",
+      "parentId": "wrk_tech_challenge_api",
+      "name": "Listar todos os posts",
+      "method": "GET",
+      "url": "{{ base_url }}/posts",
+      "_type": "request"
+    },
+    {
+      "_id": "req_get_post_id",
+      "parentId": "wrk_tech_challenge_api",
+      "name": "Detalhar um post",
+      "method": "GET",
+      "url": "{{ base_url }}/posts/1",
+      "_type": "request"
+    },
+    {
+      "_id": "req_post_post",
+      "parentId": "wrk_tech_challenge_api",
+      "name": "Criar um post",
+      "method": "POST",
+      "url": "{{ base_url }}/posts",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"titulo\": \"Título do post\",\n  \"conteudo\": \"Conteúdo do post\",\n  \"autor\": \"Nome do autor\"\n}"
+      },
+      "_type": "request",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ]
+    },
+    {
+      "_id": "req_put_post",
+      "parentId": "wrk_tech_challenge_api",
+      "name": "Editar um post",
+      "method": "PUT",
+      "url": "{{ base_url }}/posts/1",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"titulo\": \"Novo título\",\n  \"conteudo\": \"Novo conteúdo\",\n  \"autor\": \"Novo autor\"\n}"
+      },
+      "_type": "request",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ]
+    },
+    {
+      "_id": "req_delete_post",
+      "parentId": "wrk_tech_challenge_api",
+      "name": "Remover um post",
+      "method": "DELETE",
+      "url": "{{ base_url }}/posts/1",
+      "_type": "request"
+    },
+    {
+      "_id": "req_search_posts",
+      "parentId": "wrk_tech_challenge_api",
+      "name": "Buscar posts por termo",
+      "method": "GET",
+      "url": "{{ base_url }}/posts/search?q=exemplo",
+      "_type": "request"
+    }
+  ]
+}

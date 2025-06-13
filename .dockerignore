@@ -1,0 +1,29 @@
+# Dependências e build
+node_modules/
+dist/
+coverage/
+
+# Configuração e ambiente
+.env
+.env.*
+
+# Documentação e exemplos
+README.md
+insomnia_tech_challenge_api.json
+
+# Git e CI
+.git
+.gitignore
+.github/
+
+# Testes
+tests/
+
+# Docker
+.dockerignore
+Dockerfile
+docker-compose.yml
+
+# IDEs e editores
+.vscode/
+.idea/

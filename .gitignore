@@ -1,0 +1,11 @@
+# Dependências e build
+node_modules/
+dist/
+coverage/
+
+# Configuração e ambiente
+.env
+
+# IDEs e editores
+.vscode/
+.idea/

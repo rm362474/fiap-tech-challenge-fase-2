@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  db:
+    image: postgres:16
+    restart: always
+    environment:
+      POSTGRES_DB: blog
+      POSTGRES_USER: bloguser
+      POSTGRES_PASSWORD: blogpass
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U bloguser -d blog"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+  app:
+    build: .
+    image: tech-challenge-api:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - DATABASE_URL=postgresql://bloguser:blogpass@db:5432/blog
+    depends_on:
+      db:
+        condition: service_healthy
+    command: node src/server.js
